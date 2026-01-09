@@ -25,52 +25,72 @@ const servicesData = {
 }
 
 const Work = () => {
-  const [active, setActive] = useState('java') // 👈 default
+  const [active, setActive] = useState('java')
 
   return (
-    <section className="bg-white py-24" id='Works'>
-      <div className="container mx-auto px-6">
+    <section className="bg-white " id="Works">
+      <div className="container mx-auto px-4 md:px-6">
 
         {/* TITLE */}
-        <h1 className="text-center font-ubuntu text-4xl lg:text-6xl font-bold text-black mb-20">
+        <h1 className="text-center font-ubuntu text-3xl md:text-4xl lg:text-6xl font-bold text-black mb-12 md:mb-20">
           WHAT I DO
         </h1>
 
-        <div className="grid lg:grid-cols-2 gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
-          {/* LEFT – SINGLE IMAGE */}
-          <div className="flex justify-center sticky top-32">
+          {/* IMAGE */}
+          <div className="flex justify-center lg:sticky lg:top-32">
             <img
               src={servicesData[active].image}
               alt={servicesData[active].title}
-              className="w-[90%] lg:w-[75%] rounded-md transition-all duration-500"
+              className="
+                w-full
+                max-w-[320px]
+                sm:max-w-[380px]
+                md:max-w-[420px]
+                lg:max-w-[480px]
+                rounded-xl
+                transition-all duration-500
+              "
             />
           </div>
 
-          {/* RIGHT – 3 CONTENT SECTIONS */}
+          {/* CONTENT */}
           <div className="relative">
 
-            {/* vertical divider */}
-            <div className="hidden lg:block absolute left-[-40px] top-0 h-full w-[2px] bg-black" />
+            {/* vertical divider – desktop only */}
+            <div className="hidden lg:block absolute left-[-32px] top-0 h-full w-[2px] bg-black" />
 
             {Object.keys(servicesData).map((key) => (
               <div
                 key={key}
                 onClick={() => setActive(key)}
-                className={`cursor-pointer mb-14 pb-10 border-b transition-all duration-300 ${
-                  active === key ? 'border-black' : 'border-black/40'
-                }`}
+                className={`
+                  cursor-pointer
+                  mb-10
+                  mx-5
+                  pb-8
+                  border-b
+                  transition-all duration-300
+                  ${active === key ? 'border-black' : 'border-black/30'}
+                `}
               >
-                <h2 className="font-ubuntu text-2xl lg:text-3xl font-bold text-black">
+                <div className="flex justify-between items-center ">
+
+                <h2 className="font-ubuntu text-xl md:text-2xl lg:text-3xl font-bold text-black">
                   {servicesData[key].title}
                 </h2>
+                <h1>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-out-up-right-icon lucide-circle-arrow-out-up-right"><path d="M22 12A10 10 0 1 1 12 2"/><path d="M22 2 12 12"/><path d="M16 2h6v6"/></svg>
+                </h1>
+                </div>
 
                 {active === key && (
-                  <div className="mt-6 text-black max-w-xl">
-                    <p className="mb-5 leading-7">
+                  <div className="mt-4 text-black max-w-xl">
+                    <p className="mb-4 leading-7 text-sm md:text-base">
                       {servicesData[key].desc}
                     </p>
-                    <ul className="list-disc ml-6 space-y-2">
+                    <ul className="list-disc ml-5 space-y-2 text-sm md:text-base">
                       {servicesData[key].points.map((p, i) => (
                         <li key={i}>{p}</li>
                       ))}
@@ -88,3 +108,4 @@ const Work = () => {
 }
 
 export default Work
+  

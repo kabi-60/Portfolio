@@ -13,7 +13,7 @@ import express from '../Skills/ex.png'
 const TechStack = () => {
   return (
     <div>
-             <h1 className="text-center font-ubuntu text-xl font-bold text-[#000]">
+             <h1 className="text-center font-ubuntu text-lg md:text-xl font-bold text-[#000]">
                   PROGRAMMING LANGUAGE <span className='text-2xl'>🖥️</span>
                </h1>
                <div className="mx-auto my-14 grid grid-cols-3 md:grid-cols-4 gap-5 md:gap-16 px-10"  data-aos="fade-right">
